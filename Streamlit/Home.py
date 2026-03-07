@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib as plt
 
 st.title("Bike Sales Analysis")
 
@@ -154,15 +155,28 @@ This pie chart shows how **bike purchases are distributed among different age gr
 - **Youth (<25)** contribute **14.4%**, showing a **smaller share of bike purchases**.
 - A small portion (**0.53%**) represents **missing or null age data** in the dataset.
 
-**Key Insight:**  
+**🔑Key Insight:**  
 Most bikes are purchased by **Adults and Young Adults**, indicating these groups are the **primary target customers for bike sales**.
+             """)
+         #Bar Chart
+    fig6 = px.bar(df,x="Customer_Gender",y=" Profit ",title="2. Relationship bwtween Customer Gender and Profit")
+    st.plotly_chart(fig6, use_container_width = True)
+    st.write("""
+This chart shows the **the total profit contribution from each gender group**.
+             
+- **Female** customers (F) generated the **highest profit**, reaching around 98K.
+- **Male* customers (M) generated **lower profit**, approximately 67K.
+- The difference shows that female customers contributed significantly more to overall profit.
+             
+**🔑 Key Insight:**\n
+Female customers generate significantly higher profit than male customers, making them the most valuable customer segment in this dataset.
              """)
 
     # Scatterplot
-    fig2= px.scatter(df,x= " Cost ",y=" Profit ", title="2. Bikes Purchasing according to the Customer Gender",size=" Profit ",color=" Profit ")
+    fig2= px.scatter(df,x= " Cost ",y=" Profit ", title="3. The relationship between Cost and Profit for bike purchases",size=" Profit ",color=" Profit ")
     st.plotly_chart(fig2, use_container_width =True)
     st.write("""
-This scatterchart shows the **relationship between Cost and Profit** for bike purchases based on **customer gender**.  
+This scatterchart shows the **relationship between Cost and Profit** for bike purchases**.  
 Each bubble represents a data point where:
 
 - **X-axis (Cost)** represents the cost of the bike.
@@ -170,25 +184,11 @@ Each bubble represents a data point where:
 - **Bubble size** indicates the **number of purchases / sales volume**.
 - **Color intensity** represents the **profit level**, where lighter colors show higher profit.
 
-**Key Insight:**  
+**🔑Key Insight:**  
 Higher-priced bikes tend to generate **greater profit and sales value**, indicating that **premium bikes contribute significantly to overall business profit**.
 """)
     
-    # Bar Chart
-    fig3 = px.bar(df, x= "Country", y="Order_Quantity", title="3. Country Wise Bike Purchases")
-    st.plotly_chart(fig3, use_container_width=True)
-    st.write("""
-This bar chart shows the **number of bike purchases (order quantity) in different countries**.
-
-- The **United States** has a high number of bike purchases, showing strong demand in this market.
-- **Australia** records the **highest number of purchases**, indicating it is the **largest market for bike sales** in the dataset.
-- **France** also shows a moderate number of purchases compared to other countries.
-- **United Kingdom, Germany, and Canada** have **moderate purchase levels**, contributing to overall sales.
-- Some countries show **very low purchase quantities**, indicating smaller market demand.
-
-**Key Insight:**  
-Australia and the United States contribute significantly to total bike sales, suggesting these regions are **major markets for the bike business**.
-""")
+   
     #  Multi-line chart
     fig4= px.data.gapminder()
     fig4 = px.area(df,x="Country",y= " Profit ", title = "4. Country Wise Profit from different bike products",  color="Product_Description", line_group=" Profit ")
@@ -202,12 +202,12 @@ This multi-line chart shows the **profit generated from different bike products 
 - **Germany and Canada** contribute moderate profit levels to the overall sales.
 - **United Kingdom** shows lower profit values compared to other countries.
              
-**Key Insight:**\n
+**🔑Key Insight:**\n
 Australia and the United States contribute the highest share of profit, making them the **most important markets for the bike business**.
 """)
 
     # Histogram
-    fig5 = px.histogram(df,x="Product_Description",y="Order_Quantity",color = "State",barmode ="stack",title="5. Bikes Purchasing according to the Customer Gender and Product Tupes")
+    fig5 = px.histogram(df,x="Product_Description",y="Order_Quantity",color = "State",barmode ="stack",title="5. Bikes Purchasing according to the Customer Gender and Product Types")
     st.plotly_chart(fig5, use_container_width = True)
     st.write("""
 This bar chart shows the **number of bikes purchased based on different product types and customer gender**.
@@ -218,11 +218,27 @@ This bar chart shows the **number of bikes purchased based on different product 
 - Certain products have lower order quantities, suggesting lower customer preference for those models.
 - The chart indicates variation in purchasing patterns across different bike types and regions.
 
-**Key Insight:**\n
+**🔑Key Insight:**\n
 A few specific mountain bike models generate the majority of purchases, indicating that **these products are most preferred by customers and drive the highest demand in the market**.
              """)
+    
+     # Bar Chart
+    fig3 = px.bar(df, x= "Country", y="Order_Quantity", title="6. Country Wise Bike Purchases")
+    st.plotly_chart(fig3, use_container_width=True)
+    st.write("""
+This bar chart shows the **number of bike purchases (order quantity) in different countries**.
 
-#
+- The **United States** has a high number of bike purchases, showing strong demand in this market.
+- **Australia** records the **highest number of purchases**, indicating it is the **largest market for bike sales** in the dataset.
+- **France** also shows a moderate number of purchases compared to other countries.
+- **United Kingdom, Germany, and Canada** have **moderate purchase levels**, contributing to overall sales.
+- Some countries show **very low purchase quantities**, indicating smaller market demand.
+
+**🔑Key Insight:**  
+Australia and the United States contribute significantly to total bike sales, suggesting these regions are **major markets for the bike business**.
+""")
+
+
 #
 #
 #
