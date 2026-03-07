@@ -105,11 +105,11 @@ with tab1:
 
 with tab2:
     df = pd.read_excel("bike_sales.xlsx")
-    st.subheader(":blue[Dataset View]", divider=True)
+    st.subheader("Dataset View", divider=True)
     st.dataframe(df)
 
     # (d) Dataset Explanation
-    st.subheader(":blue[Dataset Explanation]", divider=True)
+    st.subheader("Dataset Explanation", divider=True)
     
     # 1. Columns and Rows Count
     dataset_shape = df.shape
@@ -139,28 +139,91 @@ with tab2:
 
 
 with tab3:
-    st.header("Visual Representation")
     import plotly.express as px
     import matplotlib.pyplot as plt
 
     # Pie chart
-    fig1 = px.pie(df,values="Order_Quantity", names="Age_Group" , title = "Bikes Purchasing According The Age Group")
+    fig1 = px.pie(df,values="Order_Quantity", names="Age_Group" , title = " 1. Bike Purchasing According to Age Group")
     st.plotly_chart(fig1, use_container_width=True)
+    st.write("""
+
+This pie chart shows how **bike purchases are distributed among different age groups**.
+
+- **Adults (35–64)** account for **52.4%** of purchases, making them the **largest group of buyers**.
+- **Young Adults (25–34)** represent **32.6%** of total purchases and form the **second largest customer group**.
+- **Youth (<25)** contribute **14.4%**, showing a **smaller share of bike purchases**.
+- A small portion (**0.53%**) represents **missing or null age data** in the dataset.
+
+**Key Insight:**  
+Most bikes are purchased by **Adults and Young Adults**, indicating these groups are the **primary target customers for bike sales**.
+             """)
 
     # Scatterplot
-    fig2= px.scatter(df,x= " Cost ",y=" Profit ", title="Bikes Purchasing according to the Customer Gender",size=" Profit ",color=" Profit ")
+    fig2= px.scatter(df,x= " Cost ",y=" Profit ", title="2. Bikes Purchasing according to the Customer Gender",size=" Profit ",color=" Profit ")
     st.plotly_chart(fig2, use_container_width =True)
+    st.write("""
+This scatterchart shows the **relationship between Cost and Profit** for bike purchases based on **customer gender**.  
+Each bubble represents a data point where:
+
+- **X-axis (Cost)** represents the cost of the bike.
+- **Y-axis (Profit)** shows the profit earned from the sale.
+- **Bubble size** indicates the **number of purchases / sales volume**.
+- **Color intensity** represents the **profit level**, where lighter colors show higher profit.
+
+**Key Insight:**  
+Higher-priced bikes tend to generate **greater profit and sales value**, indicating that **premium bikes contribute significantly to overall business profit**.
+""")
     
     # Bar Chart
-    fig3 = px.bar(df, x= "Country", y="Order_Quantity", title="Country Wise Purchase")
+    fig3 = px.bar(df, x= "Country", y="Order_Quantity", title="3. Country Wise Bike Purchases")
     st.plotly_chart(fig3, use_container_width=True)
+    st.write("""
+This bar chart shows the **number of bike purchases (order quantity) in different countries**.
 
+- The **United States** has a high number of bike purchases, showing strong demand in this market.
+- **Australia** records the **highest number of purchases**, indicating it is the **largest market for bike sales** in the dataset.
+- **France** also shows a moderate number of purchases compared to other countries.
+- **United Kingdom, Germany, and Canada** have **moderate purchase levels**, contributing to overall sales.
+- Some countries show **very low purchase quantities**, indicating smaller market demand.
+
+**Key Insight:**  
+Australia and the United States contribute significantly to total bike sales, suggesting these regions are **major markets for the bike business**.
+""")
+    #  Multi-line chart
     fig4= px.data.gapminder()
-    fig4 = px.area(df,x="Country",y= " Profit ", title = "Country Wise Profit",  color="Product_Description", line_group=" Profit ")
+    fig4 = px.area(df,x="Country",y= " Profit ", title = "4. Country Wise Profit from different bike products",  color="Product_Description", line_group=" Profit ")
     st.plotly_chart(fig4, use_container_width = True)
+    st.write("""
+This multi-line chart shows the **profit generated from different bike products across various countries**.
+             
+- **Australia** shows the highest profit values, indicating it is the most profitable market for bike sales.
+- The **United States** also generates high profit, showing strong market demand.
+- **France** records a moderate level of profit compared to the top countries.
+- **Germany and Canada** contribute moderate profit levels to the overall sales.
+- **United Kingdom** shows lower profit values compared to other countries.
+             
+**Key Insight:**\n
+Australia and the United States contribute the highest share of profit, making them the **most important markets for the bike business**.
+""")
 
     # Histogram
-    fig5 = px.histogram(df,x="Product_Description",y="Order_Quantity",color = "State",barmode ="stack",title="Bikes Purchasing according to the Customer Gender")
+    fig5 = px.histogram(df,x="Product_Description",y="Order_Quantity",color = "State",barmode ="stack",title="5. Bikes Purchasing according to the Customer Gender and Product Tupes")
     st.plotly_chart(fig5, use_container_width = True)
+    st.write("""
+This bar chart shows the **number of bikes purchased based on different product types and customer gender**.
 
+- Some bike models show higher purchase quantities, indicating they are more popular among customers.
+- **Mountain bike** variants appear frequently with higher order quantities compared to other models.
+- Purchases are distributed across multiple regions (states), showing demand in different locations.
+- Certain products have lower order quantities, suggesting lower customer preference for those models.
+- The chart indicates variation in purchasing patterns across different bike types and regions.
 
+**Key Insight:**\n
+A few specific mountain bike models generate the majority of purchases, indicating that **these products are most preferred by customers and drive the highest demand in the market**.
+             """)
+
+#
+#
+#
+#
+#
