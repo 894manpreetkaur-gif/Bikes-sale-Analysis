@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+df = pd.read_excel("../bike_sales.xlsx")
+
+
 st.title("Bike Sales Analysis")
 
 tab1, tab2, tab3 = st.tabs(["Project Overview ","Dataset Overview","Data Analysis"])
