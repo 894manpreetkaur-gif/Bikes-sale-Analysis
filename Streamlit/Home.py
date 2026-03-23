@@ -21,8 +21,8 @@ with tab1:
     """)
 
     st.subheader("🎯Objective", divider=True)
-    st.write(
-    """The main objectives of this project are:\n
+    st.write("""
+             The main objectives of this project are:\n
     1. Analyze Sales Performance
 
         ➙ Calculate total revenue, total cost, and total profit.
@@ -59,8 +59,8 @@ with tab1:
     """)
 
     st.subheader("🚀Future Scope", divider=True)
-    st.write(
-        """This project can be expanded further in the following ways:
+    st.write("""
+             This project can be expanded further in the following ways:
 
     1. Predictive Analysis
 
@@ -145,7 +145,7 @@ with tab3:
     import plotly.express as px
     import matplotlib.pyplot as plt
 
-    # Pie chart
+# Pie chart
     fig1 = px.pie(df,values="Order_Quantity", names="Age_Group" , title = " 1. Bikes Purchasing According to Age Group")
     st.plotly_chart(fig1, use_container_width=True)
     st.write("""
@@ -160,7 +160,7 @@ with tab3:
 Most bikes are purchased by **Adults and Young Adults**, indicating these groups are the **primary target customers for bike sales**.
              """)
     
-    #Bar Chart
+#Bar Chart
     fig2 = px.bar(df,x="Customer_Gender",y=" Profit ",title="2. Relationship bwtween Customer Gender and Profit")
     st.plotly_chart(fig2, use_container_width = True)
     st.write("""
@@ -173,7 +173,7 @@ Most bikes are purchased by **Adults and Young Adults**, indicating these groups
 Female customers generate significantly higher profit than male customers, making them the most valuable customer segment in this dataset.
              """)
 
-    # Scatterplot
+# Scatterplot
     fig3= px.scatter(df,x= " Cost ",y=" Profit ", title="3. The relationship between Cost and Profit for bike purchases",size=" Profit ",color=" Profit ")
     st.plotly_chart(fig3, use_container_width =True)
     st.write("""
@@ -190,7 +190,7 @@ Higher-priced bikes tend to generate **greater profit and sales value**, indicat
 """)
     
    
-    #  Multi-line chart
+#  Multi-line chart
     fig4= px.data.gapminder()
     fig4 = px.area(df,x="Country",y= " Profit ", title = "4. Country Wise Profit ",  color="Product_Description", line_group=" Profit ")
     st.plotly_chart(fig4, use_container_width = True)
@@ -206,7 +206,7 @@ Higher-priced bikes tend to generate **greater profit and sales value**, indicat
 Australia and the United States contribute the highest share of profit, making them the **most important markets for the bike business**.
 """)
     
-    # Bar Chart
+# Bar Chart
     fig5 = px.bar(df, x= "Country", y="Order_Quantity", title="5. Country Wise Bike Purchases")
     st.plotly_chart(fig5, use_container_width=True)
     st.write("""
@@ -223,7 +223,7 @@ Australia and the United States contribute significantly to total bike sales, su
 """)
 
 
-    # Histogram
+# Histogram
     fig6 = px.histogram(df,x="Product_Description",y="Order_Quantity",color = "State",barmode ="stack",title="6. Total order quantity for different bike products")
     st.plotly_chart(fig6, use_container_width = True)
     st.write("""
@@ -240,11 +240,11 @@ A few specific mountain bike models generate the majority of purchases, indicati
              """)
     
     
-    # Bubble Chart
-fig7 = px.scatter(df, x=" Unit_Cost ", y= " Unit_Price ", title="7. Unit Cost vs Unit Price with Profit",size=" Profit ", color="Product_Description")
-st.plotly_chart(fig7, use_container_width= True)
-st.write("""
-**Explanation**: The chart **compares Unit Cost (x-axis) with Unit Price (y-axis) including profit.**
+# Bubble Chart
+    fig7 = px.scatter(df, x=" Unit_Cost ", y= " Unit_Price ", title="7. Unit Cost vs Unit Price with Profit",size=" Profit ", color="Product_Description")
+    st.plotly_chart(fig7, use_container_width= True)
+    st.write("""
+    **Explanation**: The chart **compares Unit Cost (x-axis) with Unit Price (y-axis) including profit.**
          
 - Each dot represents a product/item.
 - As unit cost increases, the unit price also generally increases.
@@ -257,9 +257,9 @@ Higher unit cost products are usually sold at higher prices, but profit margins 
          """)
 
 # Area Chart
-fig8 = px.area(df, x="Date", y="Revenue", title="8. Revenue Growth Over Time")
-st.plotly_chart(fig8, use_container_width=True)
-st.write("""
+    fig8 = px.area(df, x="Date", y="Revenue", title="8. Revenue Growth Over Time")
+    st.plotly_chart(fig8, use_container_width=True)
+    st.write("""
 **Explanation**: This Area chart shows the**the revenue trend over time, with Date.**.
 
 - Shows revenue trend over time with Date on X-axis and Revenue on Y-axis.
@@ -273,9 +273,9 @@ Revenue increases significantly in the later part of the month, suggesting **hig
 """)
 
 # Box Plot
-fig9 = px.box(df, x="Age_Group", y="Revenue", title="9. Revenue Distribution by Age Group")
-st.plotly_chart(fig9,use_container_width=True )
-st.write("""
+    fig9 = px.box(df, x="Age_Group", y="Revenue", title="9. Revenue Distribution by Age Group")
+    st.plotly_chart(fig9,use_container_width=True )
+    st.write("""
 **Explanation**: The chart shows **revenue distribution for different age groups.**
 - The x-axis represents age groups, and the y-axis shows revenue.
 - Adults (35–64) generate the highest revenue overall.
@@ -287,9 +287,9 @@ st.write("""
          """)
 
 # Funnel Chart
-fig10 = px.violin(df, x="Age_Group", y=" Profit ", title="10. Profit Distribution by Age Group")
-st.plotly_chart(fig10, use_container_width= True )
-st.write("""
+    fig10 = px.violin(df, x="Age_Group", y=" Profit ", title="10. Profit Distribution by Age Group")
+    st.plotly_chart(fig10, use_container_width= True )
+    st.write("""
 **Explanation**: The chart shows **profit distribution across different age groups.**
 - The x-axis represents age groups, and the y-axis shows profit.
 - Adults (35–64) show higher and more consistent profit values.
@@ -301,9 +301,9 @@ st.write("""
           """)
 
 # histogram
-fig11 = px.histogram(df, x="Customer_Age", title="11. Customer Age Distribution")
-st.plotly_chart(fig11, use_container_width=True)
-st.write("""
+    fig11 = px.histogram(df, x="Customer_Age", title="11. Customer Age Distribution")
+    st.plotly_chart(fig11, use_container_width=True)
+    st.write("""
 **Explanation**:The chart shows the **distribution of customer ages.**
 - The x-axis represents customer age, and the y-axis shows the number of customers.
 - Most customers fall in the 30–40 years age group.
