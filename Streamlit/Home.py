@@ -84,11 +84,11 @@ with tab1:
  
         ➙ Build interactive dashboards using:
 
-            ➛ Power BI
+           ➛ Power BI
 
-            ➛ Tableau
+           ➛ Tableau
 
-            ➛ Streamlit (Python)
+           ➛ Streamlit (Python)
 
     5. Time-Series Analysis
 
